@@ -7,7 +7,7 @@ export interface Validation {
 }
 
 export interface FormField {
-    component: 'input' | 'select' | 'radio' | 'checkbox'
+    component: 'input' | 'textarea' | 'select' | 'datalist'
     name: string
     label: string
     type: string
@@ -18,7 +18,7 @@ export interface FormField {
 
 export function useFormField(props: FormField) {
 
-    function renderFromControl(props: FormField) {
+    function renderFromField(props: FormField) {
         switch (props.component) {
             case 'input':
                 return useInput(props)
@@ -41,7 +41,7 @@ export function useFormField(props: FormField) {
 
 
                 }, props.label),
-            renderFromControl(props)
+            renderFromField(props)
         ],
     )
 }
