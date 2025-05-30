@@ -3,10 +3,12 @@ import { FormField, useFormField } from './useFormField'
 
 export interface Form {
     legend?: string
+    formData: any
     fields: FormField[]
 }
 
 export function useForm(props: Form) {
+    console.log(props)
     return () => h(
         'form',
         h('fieldset', [
@@ -17,7 +19,9 @@ export function useForm(props: Form) {
                         component: field.component,
                         name: field.name,
                         label: field.label,
-                        type: field.type
+                        type: field.type,
+                        value: field.value,
+                        formData: props.formData
 
                     })
             )

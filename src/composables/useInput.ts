@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, defineEmits } from 'vue'
 import { FormField } from './useFormField'
 
 export interface Validation {
@@ -9,9 +9,19 @@ export interface Validation {
 
 
 export function useInput(props: FormField) {
+
+    function setValue(name:string, event) {
+      const target = event.target
+      props.formData[name] = target.value
+    }
+
     return h(
         'input', 
-        { type: props.type, 
-          class: 'form-input'  
+        { 
+          name: props.name,
+          type: props.type, 
+          value: props.value,
+          class: 'form-input', 
+          onInput: (event) => setValue(props.name, event)
         })
 }

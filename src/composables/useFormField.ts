@@ -11,6 +11,8 @@ export interface FormField {
     name: string
     label: string
     type: string
+    value: any,
+    formData: any
     errors?: string[]
     validation?: Validation[]
 

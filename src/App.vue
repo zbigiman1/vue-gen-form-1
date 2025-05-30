@@ -1,21 +1,31 @@
 <script setup>
-import { useForm } from "./composables/useForm"
+import { ref } from 'vue'
+import { useForm } from './composables/useForm'
 
+const fromData = ref({
+  email: ''
+},
+{
+  password: ''
+})
 
 const MyForm = useForm({
   legend: 'Login',
+  formData: fromData.value,
   fields:
     [
       {
         component: 'input',
-        mame: 'email',
+        name: 'email',
         label: 'email',
         type: 'email',
+        value: fromData.value.email,
       }, {
         component: 'input',
         name: 'password',
         label: 'password',
         type: 'password',
+        value: fromData.value.password,
       }
     ]
 })
@@ -23,4 +33,5 @@ const MyForm = useForm({
 
 <template>
   <MyForm />
+  <pre>{{ fromData  }}</pre>
 </template>
