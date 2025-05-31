@@ -8,7 +8,6 @@ export interface Form {
 }
 
 export function useForm(props: Form) {
-    console.log(props)
     return () => h(
         'form',
         h('fieldset', [
