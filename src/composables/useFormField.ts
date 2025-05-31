@@ -1,5 +1,6 @@
 import { h } from 'vue'
 import { useInput } from './useInput'
+import { useRadioOrCheckbox } from './useRadioOrCheckbox'
 
 export interface Validation {
     role: void | string
@@ -13,6 +14,7 @@ export interface FormField {
     type: string
     value: any,
     formData: any
+    options: any[]
     errors?: string[]
     validation?: Validation[]
 
@@ -23,6 +25,9 @@ export function useFormField(props: FormField) {
     function renderFromField(props: FormField) {
         switch (props.component) {
             case 'input':
+                if (props.type === 'radio' || props.type === 'checkbox') {
+                    return useRadioOrCheckbox(props)
+                }
                 return useInput(props)
             default: null
         }

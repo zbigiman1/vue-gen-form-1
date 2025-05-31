@@ -21,8 +21,8 @@ export function useForm(props: Form) {
                         label: field.label,
                         type: field.type,
                         value: field.value,
-                        formData: props.formData
-
+                        formData: props.formData,
+                        options: field.options
                     })
             )
         ]
