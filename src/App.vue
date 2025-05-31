@@ -6,7 +6,7 @@ const fromData = ref(
   {
     email: 'test@email.com',
     password: '',
-    gender: 'female',
+    gender: 'male',
     hobby: ['book', 'music'],
   }
 )

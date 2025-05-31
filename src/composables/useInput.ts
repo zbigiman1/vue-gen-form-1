@@ -1,14 +1,10 @@
 import { h } from 'vue'
 import { FormField } from './useFormField'
+import { ifArrayIcludes } from '@/helpers/helpers'
 
 export interface Validation {
   role: void | string
   message: string
-}
-
-function ifArrayIcludes(array: [], value: any) {
-  return !!array.find(element => element === value)
-
 }
 
 function setChecked(props: FormField) {
@@ -28,7 +24,7 @@ export function useInput(props: FormField) {
     const value = target.value
 
     if (props.type === 'checkbox') {
-      if (!props.formData[name].includes(value)) {
+      if (!ifArrayIcludes(props.formData[name],value)) {
         props.formData[name].push(value)
       } else {
         const index = props.formData[name].indexOf(value)
