@@ -6,12 +6,27 @@ export interface Validation {
   message: string
 }
 
-export function useInput(props: FormField) {
+function ifArrayIcludes(array: [], value: any) {
+  return !!array.find(element => element === value)
 
+}
+
+function setChecked(props: FormField) {
+  switch (props.type) {
+    case 'checkbox':
+      return ifArrayIcludes(props.formData[props.name], props.value)
+    case 'radio':
+      return props.formData[props.name] === props.value
+    default:
+      return false
+  }
+}
+
+export function useInput(props: FormField) {
   function setValue(name: string, event: Event) {
     const target = event.target as HTMLInputElement
     const value = target.value
- 
+
     if (props.type === 'checkbox') {
       if (!props.formData[name].includes(value)) {
         props.formData[name].push(value)
@@ -32,6 +47,8 @@ export function useInput(props: FormField) {
       type: props.type,
       value: props.value,
       class: 'form-input',
+      // checked: true,
+      checked: setChecked(props),
       onInput: (event) => setValue(props.name, event)
     })
 }

@@ -4,14 +4,14 @@ import { useForm } from './composables/useForm'
 
 const fromData = ref(
   {
-    email: '',
+    email: 'test@email.com',
     password: '',
-    gender: '',
-    hobby: [],
+    gender: 'female',
+    hobby: ['book', 'music'],
   }
 )
 
-const MyForm = useForm({
+const formShema = ref({
   legend: 'Register',
   formData: fromData.value,
   fields:
@@ -49,9 +49,14 @@ const MyForm = useForm({
       }
     ]
 })
+
+const MyForm = useForm(formShema.value)
 </script>
 
 <template>
   <MyForm />
+  <h3>Form data</h3>
   <pre>{{ fromData }}</pre>
+  <h3>Form shema</h3>
+  <pre>{{ formShema }}</pre>
 </template>
