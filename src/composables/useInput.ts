@@ -11,8 +11,7 @@ export function useInput(props: FormField) {
   function setValue(name: string, event: Event) {
     const target = event.target as HTMLInputElement
     const value = target.value
-    console.log(target)
-
+ 
     if (props.type === 'checkbox') {
       if (!props.formData[name].includes(value)) {
         props.formData[name].push(value)
