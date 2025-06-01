@@ -16,6 +16,7 @@ export function useInput(props: FormField) {
         type: props.type,
         errors: props.errors,
         modelValue: props.modelValue,
-        'onUpdate:modelValue': onUpdate
+        pristine: props.pristine,
+        'onUpdate:modelValue': onUpdate,
     })
 }

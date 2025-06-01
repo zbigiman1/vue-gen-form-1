@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useForm } from "./composables/useForm"
 
 const formData = ref({
-  email: 'test',
+  email: '',
   password: ''
 })
 

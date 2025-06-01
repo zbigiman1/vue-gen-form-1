@@ -18,7 +18,8 @@ export function useForm(props: Form) {
                     modelValue: field.modelValue,
                     formData: props.formData,
                     validation: field.validation,
-                    errors: ref([])
+                    errors: ref([]),
+                    pristine: ref(true)
                 })
             default: null
         }
