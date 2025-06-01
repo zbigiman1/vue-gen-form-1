@@ -8,6 +8,7 @@ import { ifArrayIcludes } from '@/helpers/helpers'
 
 export function useInput(props: FormField) {
     function onUpdate(value) {
+        console.log(value)
         props.formData.value[props.name] = value
         validate(props)
     }

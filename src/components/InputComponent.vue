@@ -17,7 +17,7 @@
             </template>
         </template>
         <template v-else>
-            <input :class="'form-field__input'" :name="name" :type="type" @blur="onBlur">
+            <input :class="'form-field__input'" :name="name" :type="type" v-model="modelValue" @blur="onBlur">
         </template>
         <div class="form-field__errors">
             <template v-for="error in errors">
@@ -46,6 +46,7 @@ const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {
     pristine.value = false
+    emit('update:modelValue', modelValue.value)
 }
 
 watch(modelValue, (value) => {
