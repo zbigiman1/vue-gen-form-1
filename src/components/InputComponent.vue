@@ -4,21 +4,20 @@
         <template v-if="type === 'radio' || type === 'checkbox'">
             <template v-if="type === 'radio'">
                 <div v-for="option in options" class="form-field__option-wraper">
-                    <input class="form-field__input--radio"
-                        :name="name" :type="type" :value="option" v-model="modelValue" @blur="onBlur">
+                    <input class="form-field__input--radio" :name="name" :type="type" :value="option"
+                        v-model="modelValue">
                     <span class="form-field__input__checkbox-radio-option">{{ option }}</span>
                 </div>
             </template>
             <template v-else>
                 <div v-for="option in options" class="form-field__option-wraper">
-                    <input class="form-field__input--checkbox"
-                        :name="name" :type="type" @blur="onBlur">
+                    <input class="form-field__input--checkbox" :name="name" :type="type" :value="option" v-model="modelValue">
                     <span class="form-field__input__checkbox-radio-option">{{ option }}</span>
                 </div>
             </template>
         </template>
         <template v-else>
-            <input :class="'form-field__input--radio'" :name="name" :type="type" v-model="modelValue" @blur="onBlur">
+            <input :class="'form-field__input'" :name="name" :type="type" @blur="onBlur">
         </template>
         <div class="form-field__errors">
             <template v-for="error in errors">

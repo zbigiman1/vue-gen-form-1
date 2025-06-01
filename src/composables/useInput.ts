@@ -8,17 +8,12 @@ import { ifArrayIcludes } from '@/helpers/helpers'
 
 export function useInput(props: FormField) {
     function onUpdate(value) {
-
-        if (props.type === 'checkbox') {
-            console.log(value)
-        }
-
         props.formData.value[props.name] = value
         validate(props)
     }
 
-    function onInput(event: Event) {
-        console.log(event)
+    function setChecked() {
+        return ifArrayIcludes(props.formData.value[props.name], props.value)
     }
 
     return h(InputComponent, {
@@ -29,7 +24,8 @@ export function useInput(props: FormField) {
         errors: props.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
+        formData: props.formData,
+        checked: setChecked,
         'onUpdate:modelValue': onUpdate,
-        'onInput': onInput
     })
 }

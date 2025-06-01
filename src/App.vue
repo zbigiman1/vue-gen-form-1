@@ -6,7 +6,7 @@ const formData = ref({
   email: '',
   password: '',
   gender: 'male',
-  hobby: ['books', 'sport']
+  hobby: ['sport', 'books']
 })
 
 const formShema =
