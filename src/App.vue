@@ -1,62 +1,44 @@
 <script setup>
 import { ref } from 'vue'
-import { useForm } from './composables/useForm'
+import { useForm } from "./composables/useForm"
 
-const fromData = ref(
+const formData = ref({
+  email: 'test',
+  password: ''
+})
+
+const formShema = 
   {
-    email: 'test@email.com',
-    password: '',
-    gender: 'male',
-    hobby: ['book', 'music'],
-  }
-)
-
-const formShema = ref({
-  legend: 'Register',
-  formData: fromData.value,
+  formData: formData,
   fields:
     [
       {
-        component: 'input',
-        type: 'email',
         name: 'email',
         label: 'email',
-
-        value: fromData.value.email,
-      }, {
+        type: 'email',
         component: 'input',
-        type: 'password',
+        modelValue: ref(formData.value.email),
+        validation: [{
+          role: 'required',
+          message: 'Email is required'
+        }]
+      }, {
         name: 'password',
         label: 'password',
-
-        value: fromData.value.password,
-      },
-      {
+        type: 'password',
         component: 'input',
-        type: 'radio',
-        name: 'gender',
-        label: 'gender',
-        options: ['female', 'male', 'custom'],
-        value: fromData.value.password,
-      },
-      {
-        component: 'input',
-        type: 'checkbox',
-        name: 'hobby',
-        label: 'hobby',
-        options: ['sport', 'music', 'book'],
-        value: fromData.value.password,
+        modelValue: ref(formData.value.password)
       }
     ]
-})
+}
 
-const MyForm = useForm(formShema.value)
+
+const MyForm = useForm(formShema)
 </script>
 
 <template>
   <MyForm />
-  <h3>Form data</h3>
-  <pre>{{ fromData }}</pre>
-  <h3>Form shema</h3>
-  <pre>{{ formShema }}</pre>
+  <pre>
+    {{ formData }}
+  </pre>
 </template>
