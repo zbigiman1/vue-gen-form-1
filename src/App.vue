@@ -45,6 +45,15 @@ const formShema =
         value: formData.value.gender,
         modelValue: ref(formData.value.gender)
       },
+      {
+        name: 'hobby',
+        label: 'hobby',
+        type: 'checkbox',
+        options: ['sport', 'music', 'books'],
+        component: 'input',
+        value: formData.value.hobby,
+        modelValue: ref(formData.value.hobby)
+      },
     ]
 }
 
