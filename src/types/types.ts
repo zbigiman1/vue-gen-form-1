@@ -11,6 +11,8 @@ export interface FormField {
     label: string
     type: string
     modelValue: any
+    value?: any,
+    options?: string[],
     formData: Ref<any>
     pristine?: Ref<boolean>
     validation?: Validation[]

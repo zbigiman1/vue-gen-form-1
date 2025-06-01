@@ -1,7 +1,18 @@
 <template>
     <div class="form-field">
         <label class="form-field__label" :for="name">{{ label }}</label>
-        <input class="form-field__input" :name="name" :type="type" v-model="modelValue" @blur="onBlur">
+        <template v-if="type === 'radio' | type === 'checkbox'">
+            <template v-if="type === 'radio'">
+                <div v-for="option in options" class="form-field__option-wraper">
+                    <input :class="type == 'radio' ? 'form-field__input--radio' : 'form-field__input--checkbox'"
+                        :name="name" :type="type" :value="option" v-model="modelValue" @blur="onBlur">
+                    <span class="form-field__input__checkbox-radio-option">{{ option }}</span>
+                </div>
+            </template>
+        </template>
+        <template v-else>
+            <input :class="'form-field__input--radio'" :name="name" :type="type" v-model="modelValue" @blur="onBlur">
+        </template>
         <div class="form-field__errors">
             <template v-for="error in errors">
                 <span class="form-field__errors__item">{{ error }}</span>
@@ -18,11 +29,13 @@ const props = defineProps<{
     label: string
     modelValue: any
     type: string
+    value?: any
+    options?: string[]
     errors: Ref<string[]>
     pristine: Ref<boolen>
 }>()
 
-const { modelValue, type, errors, pristine } = toRefs(props)
+const { modelValue, type, options, errors, pristine } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {

@@ -4,11 +4,13 @@ import { useForm } from "./composables/useForm"
 
 const formData = ref({
   email: '',
-  password: ''
+  password: '',
+  gender: 'male',
+  hobby: ['books', 'sport']
 })
 
-const formShema = 
-  {
+const formShema =
+{
   formData: formData,
   fields:
     [
@@ -22,13 +24,27 @@ const formShema =
           role: 'required',
           message: 'Email is required'
         }]
-      }, {
+      },
+      {
         name: 'password',
         label: 'password',
         type: 'password',
         component: 'input',
-        modelValue: ref(formData.value.password)
-      }
+        modelValue: ref(formData.value.email),
+        validation: [{
+          role: 'required',
+          message: 'Password is required'
+        }]
+
+      }, {
+        name: 'gender',
+        label: 'gender',
+        type: 'radio',
+        options: ['female', 'male', 'custom'],
+        component: 'input',
+        value: formData.value.gender,
+        modelValue: ref(formData.value.gender)
+      },
     ]
 }
 
