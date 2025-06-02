@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useForm } from "./composables/useForm"
+import { REGEX } from './const/regex'
 
 const formData = ref({
   email: '',
@@ -21,9 +22,14 @@ const formShema =
         type: 'email',
         component: 'input',
         modelValue: ref(formData.value.email),
-        validation: [{
+        validation: [
+          {
           role: 'required',
           message: 'Email is required'
+        },
+        {
+          role: REGEX.EMAIL,
+          message: 'Please enter the valid email.'
         }]
       },
       {
@@ -73,7 +79,6 @@ const formShema =
         label: 'country',
         options: ['US', 'UK'],
         component: 'select',
-        multiple: true,
         value: formData.value.country,
         modelValue: ref(formData.value.country)
       },

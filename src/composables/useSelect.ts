@@ -13,7 +13,6 @@ export function useSelect(props: FormField) {
         name: props.name,
         label: props.label,
         options: props.options,
-        multiple: props.multiple,
         errors: props.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,

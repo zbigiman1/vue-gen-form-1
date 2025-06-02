@@ -1,7 +1,7 @@
 import { Ref } from "vue"
 
 export interface Validation {
-    role: 'required' | void | string
+    role: 'required' | string
     message: string
 }
 
@@ -13,7 +13,6 @@ export interface FormField {
     type: string
     rows?: number
     cols?: number
-    multiple?: boolean
     value?: any,
     options?: string[],
     formData: Ref<any>

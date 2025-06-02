@@ -5,7 +5,7 @@
             v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
         <div class="form-field__errors">
             <template v-for="error in errors">
-                <span class="form-field__errors__item">{{ error }}</span>
+                <div class="form-field__errors__item">{{ error }}</div>
             </template>
         </div>
     </div>

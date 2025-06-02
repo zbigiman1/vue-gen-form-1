@@ -45,7 +45,6 @@ export function useForm(props: Form) {
                     name: field.name,
                     label: field.label,
                     type: field.type,
-                    multiple: field.multiple,
                     component: field.component,
                     value: field.value,
                     modelValue: field.modelValue,
