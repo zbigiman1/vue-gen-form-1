@@ -68,6 +68,15 @@ const formShema =
           message: 'Bio is required'
         }]
       },
+      {
+        name: 'country',
+        label: 'country',
+        options: ['US', 'UK'],
+        component: 'select',
+        multiple: true,
+        value: formData.value.country,
+        modelValue: ref(formData.value.country)
+      },
     ]
 }
 

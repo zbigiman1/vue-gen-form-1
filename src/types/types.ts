@@ -13,6 +13,7 @@ export interface FormField {
     type: string
     rows?: number
     cols?: number
+    multiple?: boolean
     value?: any,
     options?: string[],
     formData: Ref<any>

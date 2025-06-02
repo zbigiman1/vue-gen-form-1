@@ -1,8 +1,12 @@
 <template>
     <div class="form-field">
         <label class="form-field__label" :for="name">{{ label }}</label>
-        <textarea class="'form-field__textarea'" :name="name" :rows="rows" :cols="cols"
-            v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
+        <select class="'form-field__select'" :name="name" :multiple="multiple"
+            v-model="modelValue" @blur="onBlur">
+            <template v-for="option in options">
+                <option>{{ option }}</option>
+            </template>
+        </select>
         <div class="form-field__errors">
             <template v-for="error in errors">
                 <span class="form-field__errors__item">{{ error }}</span>
@@ -20,13 +24,13 @@ const props = defineProps<{
     name: string
     label: string
     modelValue: any
-    rows?: number
-    cols?: number
+    options: string[]
+    multiple: boolean
     value?: any
     errors: Ref<string[]>
     pristine: Ref<boolean>
 }>()
-const { modelValue, rows, errors, pristine } = toRefs(props)
+const { modelValue, options, errors, multiple, pristine } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {
