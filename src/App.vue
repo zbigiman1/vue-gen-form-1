@@ -60,6 +60,7 @@ const formShema =
         label: 'bio',
         type: 'bio',
         rows: 10,
+        cols: 2,
         component: 'textarea',
         modelValue: ref(formData.value.email),
         validation: [{

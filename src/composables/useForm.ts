@@ -32,6 +32,7 @@ export function useForm(props: Form) {
                     type: field.type,
                     component: field.component,
                     rows: field.rows,
+                    cols: field.cols,
                     value: field.value,
                     modelValue: field.modelValue,
                     formData: props.formData,

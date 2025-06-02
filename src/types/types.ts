@@ -12,6 +12,7 @@ export interface FormField {
     label: string
     type: string
     rows?: number
+    cols?: number
     value?: any,
     options?: string[],
     formData: Ref<any>

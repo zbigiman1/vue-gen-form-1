@@ -1,19 +1,20 @@
 <template>
     <div class="form-field">
         <label class="form-field__label" :for="name">{{ label }}</label>
-        <textarea :class="'form-field__textarea'" :name="name" :type="type" :rows="rows" v-model="modelValue"
-            @blur="onBlur" />
+        <textarea class="'form-field__textarea'" :name="name" :type="type" :rows="rows" :cols="cols"
+            v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
+        <div class="form-field__errors">
+            <template v-for="error in errors">
+                <span class="form-field__errors__item">{{ error }}</span>
+            </template>
+        </div>
     </div>
-    <div class="form-field__errors">
-        <template v-for="error in errors">
-            <span class="form-field__errors__item">{{ error }}</span>
-        </template>
-    </div>
+
 
 </template>
 
 <script setup lang="ts">
-import { Ref, toRefs, watch } from 'vue'
+import { onMounted, ref, Ref, toRefs, watch } from 'vue'
 
 const props = defineProps<{
     name: string
@@ -21,6 +22,7 @@ const props = defineProps<{
     modelValue: any
     type: string
     rows?: number
+    cols?: number
     value?: any
     errors: Ref<string[]>
     pristine: Ref<boolean>
@@ -36,6 +38,7 @@ function onBlur() {
 watch(modelValue, (value) => {
     emit('update:modelValue', value)
 })
+
 </script>
 
 <style scoped></style>
