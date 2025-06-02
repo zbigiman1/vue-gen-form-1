@@ -7,10 +7,11 @@ export interface Validation {
 
 export interface FormField {
     component: 'input' | 'textarea' | 'select'
+    modelValue: any
     name: string
     label: string
     type: string
-    modelValue: any
+    rows?: number
     value?: any,
     options?: string[],
     formData: Ref<any>

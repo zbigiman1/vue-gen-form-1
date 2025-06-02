@@ -1,31 +1,23 @@
 import { h } from 'vue'
-import InputComponent from '@/components/InputComponent.vue'
+import TextareaComponent from '@/components/TextareaComponent.vue'
 import { FormField } from '@/types/types'
 import { validate } from './useValidation'
-import { ifArrayIcludes } from '@/helpers/helpers'
 
-
-
-export function useInput(props: FormField) {
+export function useTextarea(props: FormField) {
     function onUpdate(value) {
         props.formData.value[props.name] = value
         validate(props)
     }
 
-    function setChecked() {
-        return ifArrayIcludes(props.formData.value[props.name], props.value)
-    }
-
-    return h(InputComponent, {
+    return h(TextareaComponent, {
         name: props.name,
         label: props.label,
         type: props.type,
-        options: props.options,
+        rows: props.rows,
         errors: props.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
         formData: props.formData,
-        checked: setChecked,
         'onUpdate:modelValue': onUpdate,
     })
 }

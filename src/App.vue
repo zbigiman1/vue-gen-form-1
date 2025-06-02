@@ -6,7 +6,8 @@ const formData = ref({
   email: '',
   password: '',
   gender: 'male',
-  hobby: ['sport', 'books']
+  hobby: ['sport', 'books'],
+  bio: "Some text"
 })
 
 const formShema =
@@ -53,6 +54,18 @@ const formShema =
         component: 'input',
         value: formData.value.hobby,
         modelValue: ref(formData.value.hobby)
+      },
+      {
+        name: 'bio',
+        label: 'bio',
+        type: 'bio',
+        rows: 10,
+        component: 'textarea',
+        modelValue: ref(formData.value.email),
+        validation: [{
+          role: 'required',
+          message: 'Bio is required'
+        }]
       },
     ]
 }

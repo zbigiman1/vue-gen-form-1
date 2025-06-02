@@ -1,6 +1,7 @@
 import { h, ref } from 'vue'
 import { useInput } from "../composables/useInput"
 import { Form, FormField } from '@/types/types'
+import { useTextarea } from './useTextarea'
 
 
 
@@ -19,6 +20,21 @@ export function useForm(props: Form) {
                     modelValue: field.modelValue,
                     formData: props.formData,
                     options: field.options,
+                    validation: field.validation,
+                    errors: ref([]),
+                    pristine: ref(true)
+                })
+            case 'textarea':
+                return useTextarea(
+                { 
+                    name: field.name,
+                    label: field.label,
+                    type: field.type,
+                    component: field.component,
+                    rows: field.rows,
+                    value: field.value,
+                    modelValue: field.modelValue,
+                    formData: props.formData,
                     validation: field.validation,
                     errors: ref([]),
                     pristine: ref(true)
