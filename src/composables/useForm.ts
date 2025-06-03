@@ -16,10 +16,13 @@ export function useForm(props: Form) {
     }
 
     function renderFromField(field: FormField) {
-
         field.errors = ref([])
         field.pristine = ref(true)
         field.formData = props.formData
+
+        if (field.condition && !field.condition()) {
+            return
+        }
 
         switch (field.component) {
             case 'input':

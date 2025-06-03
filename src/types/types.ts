@@ -19,6 +19,7 @@ export interface FormField {
     pristine?: Ref<boolean>
     validation?: Validation[]
     errors?: Ref<string[]>
+    condition?: Function
 }
 
 export interface Form {

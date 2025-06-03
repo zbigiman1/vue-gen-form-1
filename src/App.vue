@@ -44,7 +44,8 @@ const MyForm = useForm({
         label: 'password',
         type: 'password',
         component: 'input',
-        modelValue: ref(formData.value.email),
+        modelValue: ref(formData.value.password),
+        condition: () => formData.value.email,
         validation: [{
           role: 'required',
           message: 'Password is required'
@@ -70,7 +71,8 @@ const MyForm = useForm({
         label: 'repeat password',
         type: 'password',
         component: 'input',
-        modelValue: ref(formData.value.email),
+        condition: () => formData.value.password,
+        modelValue: ref(formData.value.repeatPassword),
         validation: [{
           role: 'required',
           message: 'The repeat password is required.'
@@ -106,7 +108,7 @@ const MyForm = useForm({
         rows: 10,
         cols: 2,
         component: 'textarea',
-        modelValue: ref(formData.value.email),
+        modelValue: ref(formData.value.bio),
         validation: [{
           role: 'required',
           message: 'Bio is required'
