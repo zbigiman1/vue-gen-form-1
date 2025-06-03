@@ -25,4 +25,6 @@ export interface Form {
     formData: any
     legend: string
     fields: FormField[]
+    action: Function,
+    submitButtonText: string
 }

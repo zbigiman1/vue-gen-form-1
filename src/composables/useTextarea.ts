@@ -1,12 +1,12 @@
 import { h } from 'vue'
 import TextareaComponent from '@/components/TextareaComponent.vue'
 import { FormField } from '@/types/types'
-import { validate } from './useValidation'
+import { validateField } from './useValidation'
 
 export function useTextarea(props: FormField) {
     function onUpdate(value) {
         props.formData.value[props.name] = value
-        validate(props)
+        validateField(props)
     }
 
     return h(TextareaComponent, {

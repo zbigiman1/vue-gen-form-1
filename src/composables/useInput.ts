@@ -1,7 +1,7 @@
 import { h } from 'vue'
 import InputComponent from '@/components/InputComponent.vue'
 import { FormField } from '@/types/types'
-import { validate } from './useValidation'
+import { validateField } from './useValidation'
 import { ifArrayIcludes } from '@/helpers/helpers'
 
 
@@ -9,7 +9,7 @@ import { ifArrayIcludes } from '@/helpers/helpers'
 export function useInput(props: FormField) {
     function onUpdate(value) {
         props.formData.value[props.name] = value
-        validate(props)
+        validateField(props)
     }
 
     function setChecked() {

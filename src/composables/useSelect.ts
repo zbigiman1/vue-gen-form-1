@@ -1,12 +1,12 @@
 import { h } from 'vue'
 import SelectComponent from '@/components/SelectComponent.vue'
 import { FormField } from '@/types/types'
-import { validate } from './useValidation'
+import { validateField } from './useValidation'
 
 export function useSelect(props: FormField) {
     function onUpdate(value) {
         props.formData.value[props.name] = value
-        validate(props)
+        validateField(props)
     }
 
     return h(SelectComponent, {

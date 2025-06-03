@@ -12,10 +12,15 @@ const formData = ref({
   bio: "Some text"
 })
 
-const formShema =
-{
+const onsubmit = () => {
+  console.log(formData.value)
+}
+
+const MyForm = useForm({
   formData: formData,
   legend: 'Register Form',
+  action: onsubmit,
+  submitButtonText: 'Send',
   fields:
     [
       {
@@ -116,10 +121,7 @@ const formShema =
         modelValue: ref(formData.value.country)
       },
     ]
-}
-
-
-const MyForm = useForm(formShema)
+})
 </script>
 
 <template>
