@@ -6,6 +6,7 @@ import { REGEX } from './const/regex'
 const formData = ref({
   email: '',
   password: '',
+  repeatPassword: '',
   gender: 'male',
   hobby: ['sport', 'books'],
   bio: "Some text"
@@ -24,13 +25,13 @@ const formShema =
         modelValue: ref(formData.value.email),
         validation: [
           {
-          role: 'required',
-          message: 'Email is required'
-        },
-        {
-          role: REGEX.EMAIL,
-          message: 'Please enter the valid email.'
-        }]
+            role: 'required',
+            message: 'Email is required'
+          },
+          {
+            role: REGEX.EMAIL,
+            message: 'Please enter the valid email.'
+          }]
       },
       {
         name: 'password',
@@ -41,7 +42,7 @@ const formShema =
         validation: [{
           role: 'required',
           message: 'Password is required'
-        },{
+        }, {
           role: REGEX.MIN_LENGTH(8),
           message: 'The password should be at least 8 characters long.'
         },
@@ -56,10 +57,24 @@ const formShema =
         {
           role: REGEX.AT_LEAST_ONE_NUMBER,
           message: 'The password should contain at least one number.'
-        }
-        
-      ]
-
+        }]
+      },
+      {
+        name: 'repeatPassword',
+        label: 'repeat password',
+        type: 'password',
+        component: 'input',
+        modelValue: ref(formData.value.email),
+        validation: [{
+          role: 'required',
+          message: 'Repeat password is required'
+        },
+        {
+          role: () => {
+            return formData.value.password === formData.value.repeatPassword
+          },
+          message: 'Passwords do not match'
+        }]
       }, {
         name: 'gender',
         label: 'gender',

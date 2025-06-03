@@ -1,7 +1,7 @@
 import { Ref } from "vue"
 
 export interface Validation {
-    role: 'required' | string
+    role: 'required' | string | Function
     message: string
 }
 
