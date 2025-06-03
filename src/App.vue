@@ -71,7 +71,7 @@ const MyForm = useForm({
         label: 'repeat password',
         type: 'password',
         component: 'input',
-        condition: () => formData.value.password,
+        condition: () => formData.value.email,
         modelValue: ref(formData.value.repeatPassword),
         validation: [{
           role: 'required',
