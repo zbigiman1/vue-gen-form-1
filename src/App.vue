@@ -41,7 +41,24 @@ const formShema =
         validation: [{
           role: 'required',
           message: 'Password is required'
-        }]
+        },{
+          role: REGEX.MIN_LENGTH(8),
+          message: 'The password should be at least 8 characters long.'
+        },
+        {
+          role: REGEX.LOWER_AND_UPPER_CASE,
+          message: 'The password should contain at least one lowercase and one uppercase character.'
+        },
+        {
+          role: REGEX.AT_LEAST_ONE_SPECIAL_CHARACTER,
+          message: 'The password should contain at least one special character.'
+        },
+        {
+          role: REGEX.AT_LEAST_ONE_NUMBER,
+          message: 'The password should contain at least one number.'
+        }
+        
+      ]
 
       }, {
         name: 'gender',

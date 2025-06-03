@@ -20,6 +20,4 @@ export function validate(field: FormField) {
             } 
         }
     })
-
-    console.log(field.errors.value)
 }   
