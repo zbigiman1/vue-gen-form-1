@@ -14,15 +14,15 @@ export interface FormField {
     rows?: number
     cols?: number
     value?: any,
-    options?: string[],
+    options?: string[]
     formData: Ref<any>
     pristine?: Ref<boolean>
     validation?: Validation[]
     errors?: Ref<string[]>
 }
 
-
 export interface Form {
-    formData: any,
+    formData: any
+    legend: string
     fields: FormField[]
 }

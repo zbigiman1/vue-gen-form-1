@@ -15,6 +15,7 @@ const formData = ref({
 const formShema =
 {
   formData: formData,
+  legend: 'Register Form',
   fields:
     [
       {
@@ -26,7 +27,7 @@ const formShema =
         validation: [
           {
             role: 'required',
-            message: 'Email is required'
+            message: 'The email is required'
           },
           {
             role: REGEX.EMAIL,
@@ -67,13 +68,13 @@ const formShema =
         modelValue: ref(formData.value.email),
         validation: [{
           role: 'required',
-          message: 'Repeat password is required'
+          message: 'The repeat password is required.'
         },
         {
           role: () => {
             return formData.value.password === formData.value.repeatPassword
           },
-          message: 'Passwords do not match'
+          message: 'Passwords do not match.'
         }]
       }, {
         name: 'gender',
