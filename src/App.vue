@@ -99,7 +99,11 @@ const MyForm = useForm({
         options: ['sport', 'music', 'books'],
         component: 'input',
         value: formData.value.hobby,
-        modelValue: ref(formData.value.hobby)
+        modelValue: ref(formData.value.hobby),
+        validation: [{
+          role: 'required',
+          message: 'The hobbby is required'
+        }]
       },
       {
         name: 'bio',
@@ -111,7 +115,7 @@ const MyForm = useForm({
         modelValue: ref(formData.value.bio),
         validation: [{
           role: 'required',
-          message: 'Bio is required'
+          message: 'The bio is required'
         }]
       },
       {
@@ -120,7 +124,11 @@ const MyForm = useForm({
         options: ['US', 'UK'],
         component: 'select',
         value: formData.value.country,
-        modelValue: ref(formData.value.country)
+        modelValue: ref(formData.value.country),
+        validation: [{
+          role: 'required',
+          message: 'The country is required'
+        }]
       },
     ]
 })
