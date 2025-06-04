@@ -16,9 +16,9 @@ export interface FormField {
     value?: any,
     options?: string[]
     formData: Ref<any>
-    pristine?: Ref<boolean>
+    pristine?: Ref<boolean> | undefined
     validation?: Validation[]
-    errors?: Ref<string[]>
+    errors?: Ref<string[]> | undefined
     condition?: Function
 }
 

@@ -1,7 +1,9 @@
 import { h } from 'vue'
-import SelectComponent from '@/components/SelectComponent.vue'
-import { FormField } from '@/types/types'
-import { validateField } from './useValidation'
+import SelectComponent from '../components/SelectComponent.vue'
+import { FormField } from '../types/types'
+import { useValidation } from './useValidation'
+
+const { validateField } = useValidation()
 
 export function useSelect(props: FormField) {
     function onUpdate(value) {

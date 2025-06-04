@@ -1,7 +1,9 @@
 import { h } from 'vue'
-import TextareaComponent from '@/components/TextareaComponent.vue'
-import { FormField } from '@/types/types'
-import { validateField } from './useValidation'
+import TextareaComponent from '../components/TextareaComponent.vue'
+import { FormField } from '../types/types'
+import { useValidation } from './useValidation'
+
+const { validateField } = useValidation()
 
 export function useTextarea(props: FormField) {
     function onUpdate(value) {

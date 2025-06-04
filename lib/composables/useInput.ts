@@ -1,13 +1,13 @@
 import { h } from 'vue'
-import InputComponent from '@/components/InputComponent.vue'
-import { FormField } from '@/types/types'
-import { validateField } from './useValidation'
-import { ifArrayIcludes } from '@/helpers/helpers'
+import InputComponent from '../components/InputComponent.vue'
+import { FormField } from '../types/types'
+import { ifArrayIcludes } from '../utils/utils'
+import { useValidation } from './useValidation'
 
-
+const { validateField } = useValidation()
 
 export function useInput(props: FormField) {
-    function onUpdate(value) {
+    function onUpdate(value: any) {
         props.formData.value[props.name] = value
         validateField(props)
     }
@@ -21,7 +21,7 @@ export function useInput(props: FormField) {
         label: props.label,
         type: props.type,
         options: props.options,
-        errors: props.errors,
+        errors: props?.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
         formData: props.formData,

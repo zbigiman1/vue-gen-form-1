@@ -1,19 +1,32 @@
 {
-  "name": "vue-return-component-from-composable",
+  "name": "vue-gen-form1",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rimraf dist && vue-tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "rimraf": "^6.0.1",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.10"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "vite": "^6.2.4",
     "vite-plugin-vue-devtools": "^7.7.2"
+  },
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "module": "./dist/vue-gen-form1.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/vue-gen-form1.es.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   }
 }

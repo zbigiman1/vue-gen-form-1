@@ -1,15 +1,15 @@
 <script setup>
 import { ref } from 'vue'
-import { useForm } from "./composables/useForm"
-import { REGEX } from './const/regex'
+import { useForm } from "../lib/composables/useForm"
+import { REGEX } from '../lib/const/regex'
 
 const formData = ref({
   email: '',
   password: '',
   repeatPassword: '',
-  gender: 'male',
-  hobby: ['sport', 'books'],
-  bio: "Some text"
+  gender: '',
+  hobby: [],
+  bio: ''
 })
 
 const onsubmit = () => {
@@ -90,7 +90,13 @@ const MyForm = useForm({
         options: ['female', 'male', 'custom'],
         component: 'input',
         value: formData.value.gender,
-        modelValue: ref(formData.value.gender)
+        modelValue: ref(formData.value.gender),
+        validation: [
+          {
+            role: 'required',
+            message: 'The gender is required'
+          },
+        ]
       },
       {
         name: 'hobby',
@@ -99,7 +105,13 @@ const MyForm = useForm({
         options: ['sport', 'music', 'books'],
         component: 'input',
         value: formData.value.hobby,
-        modelValue: ref(formData.value.hobby)
+        modelValue: ref(formData.value.hobby),
+        validation: [
+          {
+            role: 'required',
+            message: 'The hobby is required'
+          },
+        ]
       },
       {
         name: 'bio',
@@ -111,7 +123,7 @@ const MyForm = useForm({
         modelValue: ref(formData.value.bio),
         validation: [{
           role: 'required',
-          message: 'Bio is required'
+          message: 'The bio is required'
         }]
       },
       {
@@ -120,7 +132,13 @@ const MyForm = useForm({
         options: ['US', 'UK'],
         component: 'select',
         value: formData.value.country,
-        modelValue: ref(formData.value.country)
+        modelValue: ref(formData.value.country),
+        validation: [
+          {
+            role: 'required',
+            message: 'The country is required'
+          },
+        ]
       },
     ]
 })

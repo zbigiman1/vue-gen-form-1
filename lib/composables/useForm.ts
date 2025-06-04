@@ -1,10 +1,11 @@
 import { h, ref } from 'vue'
 import { useInput } from "./useInput"
-import { Form, FormField } from '@/types/types'
+import { Form, FormField } from '../types/types'
 import { useTextarea } from './useTextarea'
 import { useSelect } from './useSelect'
-import { validiateForm } from './useValidation'
+import { useValidation } from './useValidation'
 
+const { validiateForm } = useValidation()
 
 export function useForm(props: Form) {
 
