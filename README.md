@@ -18,3 +18,22 @@ npm run dev
 npm run build
 ```
 
+### Install copy-files-from-to to copy package.json to dist folder
+
+```sh
+npm install -g copy-files-from-to
+```
+
+### Run copy-files-from-to after build
+
+```sh
+copy-files-from-to
+```
+
+### Publish
+
+```sh
+cd dist
+npm publish
+```
+

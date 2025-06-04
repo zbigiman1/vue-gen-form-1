@@ -1,0 +1,12 @@
+{
+  "name": "vue-gen-form-1",
+  "version": "1.0.0",
+  "description": "vue-gen-form-1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbigiman1/vue-gen-form-1.git"
+  },
+  "homepage": "https://github.com/zbigiman1/vue-gen-form-1",
+  "author": "Zbigniew Jan Stepniewski"
+}
