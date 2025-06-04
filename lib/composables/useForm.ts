@@ -79,13 +79,15 @@ export function useForm(props: Form) {
             class: 'form',
             onSubmit: onFormSubmit
         },
-        h('fieldset', {
-            class: 'form__fieldset'
-        }, [
+        h('fieldset',
+            {
+                class: 'form__fieldset'
+            }, [
             h('legend',
                 {
                     class: 'form__fieldset__legend'
-                }, props.legend),
+                }, props.legend
+            ),
             props.fields.map((field: FormField) => renderFromField(field)),
             h('button',
                 {
