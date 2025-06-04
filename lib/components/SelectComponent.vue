@@ -1,15 +1,15 @@
 <template>
-    <div class="form-field">
-        <label class="form-field__label" :for="name">{{ label }}</label>
-        <select class="'form-field__select'" :name="name"
+    <div class="form__field">
+        <label class="form__field__label" :for="name">{{ label }}</label>
+        <select class="form__field__select" :name="name"
             v-model="modelValue" @blur="onBlur">
             <template v-for="option in options">
                 <option>{{ option }}</option>
             </template>
         </select>
-        <div class="form-field__errors">
+        <div class="form__field__errors">
             <template v-for="error in errors">
-                <div class="form-field__errors__item">{{ error }}</div>
+                <div class="form__field__errors__item">{{ error }}</div>
             </template>
         </div>
     </div>

@@ -74,14 +74,23 @@ export function useForm(props: Form) {
             default: null
         }
     }
-    return () => h('form', { onSubmit: onFormSubmit },
-        h('fieldset', [
-            h('legend', props.legend),
+    return () => h('form',
+        {
+            class: 'form',
+            onSubmit: onFormSubmit
+        },
+        h('fieldset', {
+            class: 'form__fieldset'
+        }, [
+            h('legend',
+                {
+                    class: 'form__fieldset__legend'
+                }, props.legend),
             props.fields.map((field: FormField) => renderFromField(field)),
             h('button',
                 {
                     type: 'submit',
-                    class: 'submit-button'
+                    class: 'form__submit-button'
                 }, props.submitButtonText)
         ]))
 }

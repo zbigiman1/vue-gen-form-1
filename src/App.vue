@@ -9,9 +9,9 @@ const formData = ref({
   repeatPassword: '',
   gender: '',
   hobby: [],
-  bio: ''
+  bio: '',
+  country: ''
 })
-
 const onsubmit = () => {
   console.log(formData.value)
 }
@@ -20,12 +20,12 @@ const MyForm = useForm({
   formData: formData,
   legend: 'Register Form',
   action: onsubmit,
-  submitButtonText: 'Send',
+  submitButtonText: 'Submit',
   fields:
     [
       {
         name: 'email',
-        label: 'email',
+        label: 'Email',
         type: 'email',
         component: 'input',
         modelValue: ref(formData.value.email),
@@ -41,7 +41,7 @@ const MyForm = useForm({
       },
       {
         name: 'password',
-        label: 'password',
+        label: 'Password',
         type: 'password',
         component: 'input',
         modelValue: ref(formData.value.password),
@@ -68,7 +68,7 @@ const MyForm = useForm({
       },
       {
         name: 'repeatPassword',
-        label: 'repeat password',
+        label: 'Repeat password',
         type: 'password',
         component: 'input',
         condition: () => formData.value.email,
@@ -85,60 +85,42 @@ const MyForm = useForm({
         }]
       }, {
         name: 'gender',
-        label: 'gender',
+        label: 'Gender',
         type: 'radio',
         options: ['female', 'male', 'custom'],
         component: 'input',
         value: formData.value.gender,
-        modelValue: ref(formData.value.gender),
-        validation: [
-          {
-            role: 'required',
-            message: 'The gender is required'
-          },
-        ]
+        modelValue: ref(formData.value.gender)
       },
       {
         name: 'hobby',
-        label: 'hobby',
+        label: 'Hobby',
         type: 'checkbox',
         options: ['sport', 'music', 'books'],
         component: 'input',
         value: formData.value.hobby,
-        modelValue: ref(formData.value.hobby),
-        validation: [
-          {
-            role: 'required',
-            message: 'The hobby is required'
-          },
-        ]
+        modelValue: ref(formData.value.hobby)
       },
       {
         name: 'bio',
-        label: 'bio',
+        label: 'Bio',
         type: 'bio',
-        rows: 10,
-        cols: 2,
+        rows: 4,
+        cols: 1,
         component: 'textarea',
         modelValue: ref(formData.value.bio),
         validation: [{
           role: 'required',
-          message: 'The bio is required'
+          message: 'Bio is required'
         }]
       },
       {
         name: 'country',
-        label: 'country',
+        label: 'Country',
         options: ['US', 'UK'],
         component: 'select',
         value: formData.value.country,
-        modelValue: ref(formData.value.country),
-        validation: [
-          {
-            role: 'required',
-            message: 'The country is required'
-          },
-        ]
+        modelValue: ref(formData.value.country)
       },
     ]
 })

@@ -1,11 +1,11 @@
 <template>
-    <div class="form-field">
-        <label class="form-field__label" :for="name">{{ label }}</label>
-        <textarea class="'form-field__textarea'" :name="name" :rows="rows" :cols="cols"
+    <div class="form__field">
+        <label class="form__field__label" :for="name">{{ label }}</label>
+        <textarea class="form__field__textarea" :name="name" :rows="rows" :cols="cols"
             v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
-        <div class="form-field__errors">
+        <div class="form__field__errors">
             <template v-for="error in errors">
-                <div class="form-field__errors__item">{{ error }}</div>
+                <div class="form__field__errors__item">{{ error }}</div>
             </template>
         </div>
     </div>
