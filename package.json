@@ -1,7 +1,7 @@
 {
   "name": "vue-gen-form-1",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "vite",
     "build": "rimraf dist && vue-tsc && vite build",
