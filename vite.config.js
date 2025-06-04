@@ -20,9 +20,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
-      name: 'vue-gen-form1',
+      name: 'vue-gen-form-1',
       formats: ['es'],
-      fileName: (format) => `vue-gen-form1.${format}.js`,
+      fileName: (format) => `vue-gen-form-1.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', /primevue\/.+/],

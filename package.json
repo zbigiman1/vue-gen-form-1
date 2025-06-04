@@ -1,5 +1,5 @@
 {
-  "name": "vue-gen-form1",
+  "name": "vue-gen-form-1",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -21,11 +21,11 @@
     "lib",
     "dist"
   ],
-  "module": "./dist/vue-gen-form1.es.js",
+  "module": "./dist/vue-gen-form-1.es.js",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/vue-gen-form1.es.js"
+      "import": "./dist/vue-gen-form-1.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   }
