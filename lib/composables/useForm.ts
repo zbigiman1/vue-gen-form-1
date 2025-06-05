@@ -1,6 +1,6 @@
 import { h, ref } from 'vue'
 import { useInput } from "./useInput"
-import { Form, FormField } from '../types/types'
+import { Form, FormField, FormFieldSelect } from '../types/types'
 import { useTextarea } from './useTextarea'
 import { useSelect } from './useSelect'
 import { useValidation } from './useValidation'
@@ -16,7 +16,34 @@ export function useForm(props: Form) {
         }
     }
 
+    function renderFromFieldSelect(field: FormFieldSelect) {
+        field.errors = ref([])
+        field.pristine = ref(true)
+        field.formData = props.formData
+
+        if (field.condition && !field.condition()) {
+            return
+        }
+
+        return useSelect({
+            name: field.name,
+            label: field.label,
+            type: field.type,
+            component: field.component,
+            value: field.value,
+            modelValue: field.modelValue,
+            formData: props.formData,
+            options: field.options,
+            validation: field.validation,
+            pristine: field.pristine,
+            errors: field.errors
+        })
+    }
+
     function renderFromField(field: FormField) {
+        if (field.type === 'select') {
+            field = field as FormFieldSelect
+        }
         field.errors = ref([])
         field.pristine = ref(true)
         field.formData = props.formData
@@ -36,7 +63,6 @@ export function useForm(props: Form) {
                         value: field.value,
                         modelValue: field.modelValue,
                         formData: field.formData,
-                        options: field.options,
                         validation: field.validation,
                         pristine: field.pristine,
                         errors: field.errors
@@ -57,20 +83,7 @@ export function useForm(props: Form) {
                         pristine: field.pristine,
                         errors: field.errors
                     })
-            case 'select':
-                return useSelect({
-                    name: field.name,
-                    label: field.label,
-                    type: field.type,
-                    component: field.component,
-                    value: field.value,
-                    modelValue: field.modelValue,
-                    formData: props.formData,
-                    options: field.options,
-                    validation: field.validation,
-                    pristine: field.pristine,
-                    errors: field.errors
-                })
+
             default: null
         }
     }
@@ -88,7 +101,7 @@ export function useForm(props: Form) {
                     class: 'form__fieldset__legend'
                 }, props.legend
             ),
-            props.fields.map((field: FormField) => renderFromField(field)),
+            props.fields.map(field => field.type === 'select' ? renderFromFieldSelect(field as FormFieldSelect) : renderFromField(field)),
             h('button',
                 {
                     type: 'submit',

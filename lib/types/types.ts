@@ -14,12 +14,15 @@ export interface FormField {
     rows?: number
     cols?: number
     value?: any,
-    options?: string[]
     formData: Ref<any>
-    pristine?: Ref<boolean> | undefined
-    validation?: Validation[]
-    errors?: Ref<string[]> | undefined
+    pristine: Ref<boolean>
+    validation: Validation[]
+    errors: Ref<string[]>
     condition?: Function
+}
+
+export interface FormFieldSelect extends FormField {
+    options: string[]
 }
 
 export interface Form {

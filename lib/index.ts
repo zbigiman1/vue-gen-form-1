@@ -3,6 +3,7 @@ import * as components from '../lib/components'
 
 function install (app: App) {
   for (const key in components) {
+    // @ts-ignore
     app.component(key, components[key])
   }
 }
