@@ -1,6 +1,6 @@
 {
   "name": "vue-gen-form-1",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "vue-gen-form-1",
   "license": "MIT",
   "repository": {
@@ -8,5 +8,12 @@
     "url": "git+https://github.com/zbigiman1/vue-gen-form-1.git"
   },
   "homepage": "https://github.com/zbigiman1/vue-gen-form-1",
-  "author": "Zbigniew Jan Stepniewski"
+  "author": "Zbigniew Jan Stepniewski",
+  "module": "./vue-gen-form-1.es.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./vue-gen-form-1.es.js"
+    }
+  }
 }
