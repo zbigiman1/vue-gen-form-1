@@ -7,8 +7,8 @@ const formData = ref({
   email: '',
   password: '',
   repeatPassword: '',
-  gender: '',
-  hobby: [],
+  gender: 'male',
+  hobby: ['sport'],
   bio: '',
   photo: '',
   country: ''
@@ -96,7 +96,6 @@ const MyForm = useForm({
         type: 'radio',
         options: ['female', 'male', 'custom'],
         component: 'input',
-        value: formData.value.gender,
         modelValue: ref(formData.value.gender),
         validation: [{
           role: 'required',
@@ -109,7 +108,6 @@ const MyForm = useForm({
         type: 'checkbox',
         options: ['sport', 'music', 'books'],
         component: 'input',
-        value: formData.value.hobby,
         modelValue: ref(formData.value.hobby),
         validation: [{
           role: 'required',
@@ -148,7 +146,6 @@ const MyForm = useForm({
         label: 'Country',
         options: ['US', 'UK'],
         component: 'select',
-        value: formData.value.country,
         modelValue: ref(formData.value.country),
         validation: [{
           role: 'required',

@@ -13,7 +13,6 @@ export interface FormField {
     type?: string
     rows?: number
     cols?: number
-    value?: any,
     options?: string[]
     onFileUpload?: Function
     condition?: Function

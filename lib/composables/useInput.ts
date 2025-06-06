@@ -16,7 +16,7 @@ export function useInput(props: FormFieldExtended) {
     }
 
     function setChecked() {
-        return ifArrayIcludes(props.formData.value[props.name], props.value)
+        return ifArrayIcludes(props.formData.value[props.name], props.modelValue.value)
     }
 
     return h(InputComponent, {
