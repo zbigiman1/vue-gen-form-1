@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
@@ -10,10 +10,17 @@ const formData = ref({
   gender: '',
   hobby: [],
   bio: '',
+  photo: '',
   country: ''
 })
 const onsubmit = () => {
   console.log(formData.value)
+}
+
+function onPhotoUpload(event: Event) {
+  const input = event.target as HTMLInputElement
+  const filesAsArray = Array.from(input?.files || [])
+  console.log(filesAsArray)
 }
 
 const MyForm = useForm({
@@ -90,7 +97,11 @@ const MyForm = useForm({
         options: ['female', 'male', 'custom'],
         component: 'input',
         value: formData.value.gender,
-        modelValue: ref(formData.value.gender)
+        modelValue: ref(formData.value.gender),
+        validation: [{
+          role: 'required',
+          message: 'The gender is required'
+        }]
       },
       {
         name: 'hobby',
@@ -116,6 +127,20 @@ const MyForm = useForm({
         validation: [{
           role: 'required',
           message: 'The bio is required'
+        }]
+      },
+      {
+        name: 'photo',
+        label: 'Photo',
+        type: 'file',
+        rows: 4,
+        cols: 1,
+        component: 'input',
+        modelValue: ref(formData.value.photo),
+        onFileUpload: onPhotoUpload,
+        validation: [{
+          role: 'required',
+          message: 'The photo is required'
         }]
       },
       {

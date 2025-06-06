@@ -1,13 +1,16 @@
 import { h } from 'vue'
 import InputComponent from '../components/InputComponent.vue'
-import { FormField } from '../types/types'
+import { FormFieldExtended } from '../types/types'
 import { ifArrayIcludes } from '../utils/utils'
 import { useValidation } from './useValidation'
 
 const { validateField } = useValidation()
 
-export function useInput(props: FormField) {
+export function useInput(props: FormFieldExtended) {
     function onUpdate(value: any) {
+        if (props.type === 'file') {
+            return
+        }
         props.formData.value[props.name] = value
         validateField(props)
     }
@@ -26,6 +29,7 @@ export function useInput(props: FormField) {
         pristine: props.pristine,
         formData: props.formData,
         checked: setChecked,
+        'onChange': props.type === 'file' ? props.onFileUpload : null,
         'onUpdate:modelValue': onUpdate,
     })
 }

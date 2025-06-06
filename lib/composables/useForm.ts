@@ -1,6 +1,6 @@
 import { h, ref } from 'vue'
 import { useInput } from "./useInput"
-import { Form, FormField } from '../types/types'
+import { Form, FormFieldExtended } from '../types/types'
 import { useTextarea } from './useTextarea'
 import { useSelect } from './useSelect'
 import { useValidation } from './useValidation'
@@ -11,12 +11,12 @@ export function useForm(props: Form) {
 
     function onFormSubmit(event: Event) {
         event.preventDefault()
-        if (validiateForm(props.fields)) {
+        if (validiateForm(props.fields as any)) {
             props.action()
         }
     }
 
-    function renderFromField(field: FormField) {
+    function renderFromField(field: FormFieldExtended) {
         field.errors = ref([])
         field.pristine = ref(true)
         field.formData = props.formData
@@ -36,6 +36,7 @@ export function useForm(props: Form) {
                         component: field.component,
                         value: field.value,
                         modelValue: field.modelValue,
+                        onFileUpload: field.onFileUpload,
                         formData: field.formData,
                         validation: field.validation,
                         pristine: field.pristine,
@@ -89,7 +90,7 @@ export function useForm(props: Form) {
                     class: 'form__fieldset__legend'
                 }, props.legend
             ),
-            props.fields.map(field => renderFromField(field)),
+            props.fields.map(field => renderFromField(field as FormFieldExtended)),
             h('button',
                 {
                     type: 'submit',

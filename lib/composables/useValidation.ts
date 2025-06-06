@@ -1,8 +1,8 @@
-import { FormField } from "../types/types";
+import { FormFieldExtended } from "../types/types";
 
 export function useValidation() {
 
-    function validateField(field: FormField) {
+    function validateField(field: FormFieldExtended) {
 
         if (field.pristine.value) {
             return
@@ -32,7 +32,7 @@ export function useValidation() {
         })
     }
 
-    function validiateForm(fields: FormField[]) {
+    function validiateForm(fields: FormFieldExtended[]) {
         let isFormValid = true
         fields.forEach((field) => {
             field.pristine.value = false

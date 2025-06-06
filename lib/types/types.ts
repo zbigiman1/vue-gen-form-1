@@ -1,7 +1,7 @@
 import { Ref } from "vue"
 
 export interface Validation {
-    role: 'required' | string | Function
+    role: 'required' | RegExp | Function
     message: string
 }
 
@@ -10,16 +10,23 @@ export interface FormField {
     modelValue: any
     name: string
     label: string
-    type: string
+    type?: string
     rows?: number
     cols?: number
     value?: any,
     options?: string[]
+    onFileUpload?: Function
+    condition?: Function
+    validation: Validation[]
+
+}
+
+export interface FormFieldExtended extends FormField {
     formData: Ref<any>
     pristine: Ref<boolean>
-    validation: Validation[]
+    type: string
     errors: Ref<string[]>
-    condition?: Function
+
 }
 
 export interface Form {
