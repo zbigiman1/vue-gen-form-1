@@ -20,6 +20,7 @@ export function useInput(props: FormField) {
         name: props.name,
         label: props.label,
         type: props.type,
+        options: props.options,
         errors: props?.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,

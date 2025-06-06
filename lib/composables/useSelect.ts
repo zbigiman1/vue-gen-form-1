@@ -1,11 +1,11 @@
 import { h } from 'vue'
 import SelectComponent from '../components/SelectComponent.vue'
-import { FormField, FormFieldSelect } from '../types/types'
+import { FormField } from '../types/types'
 import { useValidation } from './useValidation'
 
 const { validateField } = useValidation()
 
-export function useSelect(props: FormFieldSelect) {
+export function useSelect(props: FormField) {
     function onUpdate(value: any) {
         props.formData.value[props.name] = value
         validateField(props)

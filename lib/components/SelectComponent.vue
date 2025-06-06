@@ -22,7 +22,7 @@ const props = defineProps<{
     name: string
     label: string
     modelValue: any
-    options: string[]
+    options: string[] | undefined
     value?: any
     errors: Ref<string[]>
     pristine: Ref<boolean>
