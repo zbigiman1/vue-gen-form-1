@@ -17,7 +17,7 @@
             </template>
         </template>
         <template v-else>
-            <input :class="'form__field__input'" :name="name" :type="type" v-model="modelValue" @blur="onBlur">
+            <input :class="'form__field__input'" :name="name" :type="type" v-model="modelValue" :accept="accept" @blur="onBlur">
         </template>
         <div class="form__field__errors">
             <template v-for="error in errors">
@@ -35,13 +35,14 @@ const props = defineProps<{
     label: string
     modelValue: any
     type: string
+    accept?: any
     value?: any
     options?: string[]
     errors: Ref<string[]>
     pristine: Ref<boolean>
 }>()
 
-const { modelValue, type, options, errors, pristine } = toRefs(props)
+const { modelValue, type, options, errors, pristine, accept } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {
