@@ -21,7 +21,7 @@ function onPhotoUpload(event: Event) {
   const input = event.target as HTMLInputElement
   const files = Array.from(input?.files || [])
   formData.value.photo = files[0]
-  console.log(files)
+  console.log(files[0])
 }
 
 const MyForm = useForm({
