@@ -33,6 +33,7 @@ export function useForm(props: Form) {
                         label: field.label,
                         type: field.type,
                         options: field.options,
+                        accept: field.accept,
                         component: field.component,
                         modelValue: field.modelValue,
                         onFileUpload: field.onFileUpload,

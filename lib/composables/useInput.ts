@@ -8,9 +8,6 @@ const { validateField } = useValidation()
 
 export function useInput(props: FormFieldExtended) {
     function onUpdate(value: any) {
-        if (props.type === 'file') {
-            return
-        }
         props.formData.value[props.name] = value
         validateField(props)
     }
@@ -24,6 +21,7 @@ export function useInput(props: FormFieldExtended) {
         label: props.label,
         type: props.type,
         options: props.options,
+        accept: props.accept,
         errors: props?.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,

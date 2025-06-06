@@ -10,7 +10,7 @@ const formData = ref({
   gender: 'male',
   hobby: ['sport'],
   bio: '',
-  photo: '',
+  photo: null,
   country: ''
 })
 const onsubmit = () => {
@@ -19,8 +19,9 @@ const onsubmit = () => {
 
 function onPhotoUpload(event: Event) {
   const input = event.target as HTMLInputElement
-  const filesAsArray = Array.from(input?.files || [])
-  console.log(filesAsArray)
+  const files = Array.from(input?.files || [])
+  formData.value.photo = files[0]
+  console.log(files)
 }
 
 const MyForm = useForm({
@@ -131,8 +132,7 @@ const MyForm = useForm({
         name: 'photo',
         label: 'Photo',
         type: 'file',
-        rows: 4,
-        cols: 1,
+        accept: 'image/png, image/jpeg',
         component: 'input',
         modelValue: ref(formData.value.photo),
         onFileUpload: onPhotoUpload,
