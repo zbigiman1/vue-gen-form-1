@@ -1,5 +1,25 @@
 import { Ref } from "vue"
 
+export enum InputType {
+    CHECKBOX = 'checkbox',
+    COLOR = 'color',
+    DATE = 'date',
+    DATETIME_LOCAL = 'datetime-local',
+    EMAIL = 'email',
+    FILE = 'file',
+    MONTH = 'month',
+    NUMBER = 'number',
+    PASSWORD = 'password',
+    RADIO = 'radio',
+    RANGE = 'range',
+    SEARCH = 'search',
+    TEL = 'tel',
+    TEXT = 'text',
+    TIME = 'time',
+    URL = 'url',
+    WEEK = 'week'
+}
+
 export interface Validation {
     role: 'required' | RegExp | Function
     message: string
@@ -10,7 +30,7 @@ export interface FormField {
     modelValue: any
     name: string
     label: string
-    type?: string
+    type?: InputType
     rows?: number
     cols?: number
     accept?: string
@@ -24,7 +44,7 @@ export interface FormField {
 export interface FormFieldExtended extends FormField {
     formData: Ref<any>
     pristine: Ref<boolean>
-    type: string
+    type: InputType
     errors: Ref<string[]>
 
 }

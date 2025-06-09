@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
+import { InputType } from '../lib/types/types'
 
 const formData = ref({
   email: '',
@@ -34,7 +35,7 @@ const MyForm = useForm({
       {
         name: 'email',
         label: 'Email',
-        type: 'email',
+        type: InputType.EMAIL,
         component: 'input',
         modelValue: ref(formData.value.email),
         validation: [
@@ -50,7 +51,7 @@ const MyForm = useForm({
       {
         name: 'password',
         label: 'Password',
-        type: 'password',
+        type: InputType.PASSWORD,
         component: 'input',
         modelValue: ref(formData.value.password),
         condition: () => formData.value.email,
@@ -77,7 +78,7 @@ const MyForm = useForm({
       {
         name: 'repeatPassword',
         label: 'Repeat password',
-        type: 'password',
+        type: InputType.PASSWORD,
         component: 'input',
         condition: () => formData.value.email,
         modelValue: ref(formData.value.repeatPassword),
@@ -94,7 +95,7 @@ const MyForm = useForm({
       }, {
         name: 'gender',
         label: 'Gender',
-        type: 'radio',
+        type: InputType.RADIO,
         options: ['female', 'male', 'custom'],
         component: 'input',
         modelValue: ref(formData.value.gender),
@@ -106,7 +107,7 @@ const MyForm = useForm({
       {
         name: 'hobby',
         label: 'Hobby',
-        type: 'checkbox',
+        type: InputType.CHECKBOX,
         options: ['sport', 'music', 'books'],
         component: 'input',
         modelValue: ref(formData.value.hobby),
@@ -118,7 +119,6 @@ const MyForm = useForm({
       {
         name: 'bio',
         label: 'Bio',
-        type: 'bio',
         rows: 4,
         cols: 1,
         component: 'textarea',
@@ -131,7 +131,7 @@ const MyForm = useForm({
       {
         name: 'photo',
         label: 'Photo',
-        type: 'file',
+        type: InputType.FILE,
         accept: 'image/png, image/jpeg',
         component: 'input',
         modelValue: ref(formData.value.photo),
