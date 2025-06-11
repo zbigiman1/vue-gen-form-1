@@ -1,6 +1,8 @@
 import { Ref } from "vue"
 import type { Component } from 'vue'
-import { InputType } from "../enums/"
+
+export type InputType = 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'month' |
+    'number' | 'password' | 'radio' | 'range' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week'
 
 export interface Validation {
     role: 'required' | RegExp | Function

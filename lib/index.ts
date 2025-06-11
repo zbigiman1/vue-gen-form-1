@@ -12,7 +12,6 @@ export default { install }
 
 export * from '../lib/components'
 export * from '../lib/composables'
-export * from '../lib/enums'
 export * from '../lib/types'
 export * from '../lib/const'
 export * from '../lib/utils'

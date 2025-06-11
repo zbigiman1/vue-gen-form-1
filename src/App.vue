@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
-import { InputType } from '../lib/enums'
 import PasswordField from './components/PasswordField.vue'
 
 const formData = ref({
@@ -36,7 +35,7 @@ const MyForm = useForm({
       {
         name: 'email',
         label: 'Email',
-        type: InputType.EMAIL,
+        type: 'email',
         component: 'input',
         modelValue: ref(formData.value.email),
         validation: [
@@ -52,7 +51,7 @@ const MyForm = useForm({
       {
         name: 'password',
         label: 'Password',
-        type: InputType.PASSWORD,
+        type: 'password',
         component: PasswordField,
         modelValue: ref(formData.value.password),
         condition: () => formData.value.email,
@@ -79,7 +78,7 @@ const MyForm = useForm({
       {
         name: 'repeatPassword',
         label: 'Repeat password',
-        type: InputType.PASSWORD,
+        type: 'password',
         component: PasswordField,
         condition: () => formData.value.email,
         modelValue: ref(formData.value.repeatPassword),
@@ -96,7 +95,7 @@ const MyForm = useForm({
       }, {
         name: 'gender',
         label: 'Gender',
-        type: InputType.RADIO,
+        type: 'radio',
         options: ['female', 'male', 'custom'],
         component: 'input',
         modelValue: ref(formData.value.gender),
@@ -108,7 +107,7 @@ const MyForm = useForm({
       {
         name: 'hobby',
         label: 'Hobby',
-        type: InputType.CHECKBOX,
+        type: 'checkbox',
         options: ['sport', 'music', 'books'],
         component: 'input',
         modelValue: ref(formData.value.hobby),
@@ -132,7 +131,7 @@ const MyForm = useForm({
       {
         name: 'photo',
         label: 'Photo',
-        type: InputType.FILE,
+        type: 'file',
         accept: 'image/png, image/jpeg',
         component: 'input',
         modelValue: ref(formData.value.photo),
