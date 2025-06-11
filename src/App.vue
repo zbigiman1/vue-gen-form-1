@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, shallowRef } from 'vue'
+import { ref } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
 import { InputType } from '../lib/enums'
-import PasswordField from '../components/PasswordField.vue'
+import PasswordField from './components/PasswordField.vue'
 
 const formData = ref({
   email: '',

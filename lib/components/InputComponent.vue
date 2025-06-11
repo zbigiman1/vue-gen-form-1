@@ -17,7 +17,7 @@
             </template>
         </template>
         <template v-else>
-            <input :class="'form__field__input'" :name="name" :type="type" v-model="modelValue" :accept="accept" @blur="onBlur">
+            <input class="form__field__input" :name="name" :type="type" v-model="modelValue" :accept="accept" @blur="onBlur">
         </template>
         <div class="form__field__errors">
             <template v-for="error in errors">

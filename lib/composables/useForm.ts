@@ -77,21 +77,22 @@ export function useForm(props: Form) {
                 default: null
             }
         } else {
+            
             return useCustomComponent(
-                        {
-                            name: field.name,
-                            label: field.label,
-                            type: field.type,
-                            options: field.options,
-                            accept: field.accept,
-                            component: field.component,
-                            modelValue: field.modelValue,
-                            onFileUpload: field.onFileUpload,
-                            formData: field.formData,
-                            validation: field.validation,
-                            pristine: field.pristine,
-                            errors: field.errors
-                        })
+                {
+                    name: field.name,
+                    label: field.label,
+                    type: field.type,
+                    options: field.options,
+                    accept: field.accept,
+                    component: field.component,
+                    modelValue: field.modelValue,
+                    onFileUpload: field.onFileUpload,
+                    formData: field.formData,
+                    validation: field.validation,
+                    pristine: field.pristine,
+                    errors: field.errors
+                })
         }
     }
     return () => h('form',
