@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
-import { InputType } from '../lib/enums/enums'
+import { InputType } from '../lib/enums'
 
 const formData = ref({
   email: '',

@@ -1,5 +1,5 @@
-import * as Enums from './enums'
+import { InputType } from "./enums"
 
 export {
-    Enums    
+    InputType    
 }

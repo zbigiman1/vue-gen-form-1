@@ -1,11 +1,13 @@
 {
   "name": "vue-gen-form-1",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zbigiman1/vue-gen-form-1.git"
   },
+  "description": "vue-gen-form-1",
+  "license": "MIT",
   "homepage": "https://github.com/zbigiman1/vue-gen-form-1",
   "author": "Zbigniew Jan Stepniewski",
   "scripts": {
@@ -14,11 +16,11 @@
     "preview": "vite preview"
   },
   "copyFiles": [
-        {
-            "from": "lib/package.json",
-            "to": "dist/package.json"
-        }       
-    ],
+    {
+      "from": "lib/package.json",
+      "to": "dist/package.json"
+    }
+  ],
   "dependencies": {
     "copy-files-from-to": "^3.12.1",
     "rimraf": "^6.0.1",

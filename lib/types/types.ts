@@ -1,5 +1,5 @@
 import { Ref } from "vue"
-import { InputType } from "../enums/enums"
+import { InputType } from "../enums/"
 
 export interface Validation {
     role: 'required' | RegExp | Function
