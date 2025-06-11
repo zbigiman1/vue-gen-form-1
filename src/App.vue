@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { useForm } from "../lib/composables/useForm"
 import { REGEX } from '../lib/const/regex'
 import { InputType } from '../lib/enums'
+import PasswordField from '../components/PasswordField.vue'
 
 const formData = ref({
   email: '',
@@ -52,7 +53,7 @@ const MyForm = useForm({
         name: 'password',
         label: 'Password',
         type: InputType.PASSWORD,
-        component: 'input',
+        component: PasswordField,
         modelValue: ref(formData.value.password),
         condition: () => formData.value.email,
         validation: [{
@@ -79,7 +80,7 @@ const MyForm = useForm({
         name: 'repeatPassword',
         label: 'Repeat password',
         type: InputType.PASSWORD,
-        component: 'input',
+        component: PasswordField,
         condition: () => formData.value.email,
         modelValue: ref(formData.value.repeatPassword),
         validation: [{

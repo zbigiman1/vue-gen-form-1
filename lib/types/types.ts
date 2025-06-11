@@ -1,4 +1,5 @@
 import { Ref } from "vue"
+import type { Component } from 'vue'
 import { InputType } from "../enums/"
 
 export interface Validation {
@@ -7,7 +8,7 @@ export interface Validation {
 }
 
 export interface FormField {
-    component: 'input' | 'textarea' | 'select'
+    component: 'input' | 'textarea' | 'select' | Component
     modelValue: any
     name: string
     label: string
