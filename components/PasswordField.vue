@@ -4,10 +4,10 @@
         <input :class="'form__field__input'" :name="name" :type="isShowPassword ? 'text' : type" v-model="modelValue" @blur="onBlur">
         <button type="button" @click="showPassword">
             <template v-if="isShowPassword">
-                Hide password
+                hide password
             </template>
             <template v-else>
-                Show password
+                show password
             </template>            
         </button>
         <div class="form__field__errors">
