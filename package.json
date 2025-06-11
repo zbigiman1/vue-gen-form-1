@@ -1,6 +1,6 @@
 {
   "name": "vue-gen-form-1",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "private": false,
   "repository": {
     "type": "git",
@@ -15,16 +15,10 @@
     "build": "rimraf dist && vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "copyFiles": [
-    {
-      "from": "lib/package.json",
-      "to": "dist/package.json"
-    }
-  ],
   "dependencies": {
-    "copy-files-from-to": "^3.12.1",
     "rimraf": "^6.0.1",
     "vue": "^3.5.13",
+    "vue-gen-form-1": "^1.0.15",
     "vue-tsc": "^2.2.10"
   },
   "devDependencies": {
