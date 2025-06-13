@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, Ref, toRefs, watch } from 'vue'
+import { Ref, toRefs, watch } from 'vue';
 
 const props = defineProps<{
     name: string
