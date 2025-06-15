@@ -37,6 +37,7 @@ export interface FormField {
     onFileUpload?: Function
     condition?: Function
     validation: Validation[]
+    section?: string
 }
 
 export interface FormFieldExtended extends FormField {
