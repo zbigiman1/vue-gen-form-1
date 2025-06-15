@@ -37,6 +37,7 @@ const MyForm = useForm({
         label: 'Email',
         type: 'email',
         component: 'input',
+        section: 'Email',
         modelValue: ref(formData.value.email),
         validation: [
           {
@@ -53,6 +54,7 @@ const MyForm = useForm({
         label: 'Password',
         type: 'password',
         component: PasswordField,
+        section: 'Password',
         modelValue: ref(formData.value.password),
         condition: () => formData.value.email,
         validation: [{
@@ -80,6 +82,7 @@ const MyForm = useForm({
         label: 'Repeat password',
         type: 'password',
         component: PasswordField,
+        section: 'Password',
         condition: () => formData.value.email,
         modelValue: ref(formData.value.repeatPassword),
         validation: [{
@@ -98,6 +101,7 @@ const MyForm = useForm({
         type: 'radio',
         options: ['female', 'male', 'custom'],
         component: 'input',
+        section: 'Additional info',
         modelValue: ref(formData.value.gender),
         validation: [{
           role: 'required',
@@ -110,6 +114,7 @@ const MyForm = useForm({
         type: 'checkbox',
         options: ['sport', 'music', 'books'],
         component: 'input',
+        section: 'Additional info',
         modelValue: ref(formData.value.hobby),
         validation: [{
           role: 'required',
@@ -122,6 +127,7 @@ const MyForm = useForm({
         rows: 4,
         cols: 1,
         component: 'textarea',
+        section: 'Additional info',
         modelValue: ref(formData.value.bio),
         validation: [{
           role: 'required',
@@ -134,6 +140,7 @@ const MyForm = useForm({
         type: 'file',
         accept: 'image/png, image/jpeg',
         component: 'input',
+        section: 'Additional info',
         modelValue: ref(formData.value.photo),
         onFileUpload: onPhotoUpload,
         validation: [{
@@ -146,6 +153,7 @@ const MyForm = useForm({
         label: 'Country',
         options: ['US', 'UK'],
         component: 'select',
+        section: 'Additional info',
         modelValue: ref(formData.value.country),
         validation: [{
           role: 'required',

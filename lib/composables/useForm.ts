@@ -10,6 +10,12 @@ const { validiateForm } = useValidation()
 
 export function useForm(props: Form) {
 
+    const sections = Array.from(new Set(props.fields.map(field => {
+        if(field.section) {
+            return field.section
+        } 
+    })))
+
     function onFormSubmit(event: Event) {
         event.preventDefault()
         if (validiateForm(props.fields as any)) {
@@ -95,6 +101,26 @@ export function useForm(props: Form) {
                 })
         }
     }
+
+    function renderFormSections() {    
+        
+        return sections.map(section => {
+            const sectionFields = props.fields.filter(
+            field => field.section === section && !(field.condition && !field.condition()))
+
+            if (!sectionFields.length) {
+                return
+            }
+
+            return h('fieldset', {
+                class: 'form__section'
+            },[
+                h('legend', { class: 'form__section__legend' }, section),
+                sectionFields.map(field => renderFromField(field as FormFieldExtended))
+            ])
+        })
+    }
+
     return () => h('form',
         {
             class: 'form',
@@ -109,7 +135,7 @@ export function useForm(props: Form) {
                     class: 'form__fieldset__legend'
                 }, props.legend
             ),
-            props.fields.map(field => renderFromField(field as FormFieldExtended)),
+            renderFormSections(),
             h('button',
                 {
                     type: 'submit',
