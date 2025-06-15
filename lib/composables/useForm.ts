@@ -1,5 +1,6 @@
 import { h, ref } from 'vue'
 import { Form, FormFieldExtended } from '../types/types'
+import { slugify } from '../utils/utils'
 import { useCustomComponent } from './useCustomComponent'
 import { useInput } from "./useInput"
 import { useSelect } from './useSelect'
@@ -113,7 +114,7 @@ export function useForm(props: Form) {
             }
 
             return h('fieldset', {
-                class: 'form__section'
+                class: `form__section form__section__${slugify(section as string)}`
             },[
                 h('legend', { class: 'form__section__legend' }, section),
                 sectionFields.map(field => renderFromField(field as FormFieldExtended))
