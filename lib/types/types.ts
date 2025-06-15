@@ -22,6 +22,7 @@ export interface FormField {
     onFileUpload?: Function
     condition?: Function
     validation: Validation[]
+    section?: string
 }
 
 export interface FormFieldExtended extends FormField {
@@ -29,12 +30,11 @@ export interface FormFieldExtended extends FormField {
     pristine: Ref<boolean>
     type: InputType
     errors: Ref<string[]>
-
 }
 
 export interface Form {
     formData: any
-    legend: string
+    legend?: string
     fields: FormField[]
     action: Function,
     submitButtonText: string
