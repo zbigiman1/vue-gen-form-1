@@ -1,5 +1,7 @@
 # vue-gen-form-1
 
+Lightweight, powerful CSS framework agnostic, form generator with validation, sections, conditional fields and custom components.
+
 ## Documentation
 https://medium.com/@john.stamp/the-vue-gen-form-1-4a17865af9ae
 
