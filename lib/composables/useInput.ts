@@ -25,7 +25,6 @@ export function useInput(props: FormFieldExtended) {
         errors: props?.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
-        formData: props.formData,
         checked: setChecked,
         'onChange': props.type === 'file' ? props.onFileUpload : null,
         'onUpdate:modelValue': onUpdate,

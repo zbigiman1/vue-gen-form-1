@@ -18,7 +18,6 @@ export function useSelect(props: FormFieldExtended) {
         errors: props.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
-        formData: props.formData,
         'onUpdate:modelValue': onUpdate,
     })
 }
