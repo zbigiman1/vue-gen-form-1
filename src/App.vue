@@ -9,7 +9,7 @@ const formData = ref({
   password: '',
   repeatPassword: '',
   gender: 'male',
-  hobby: ['sport'],
+  hobby: ['music','sport'],
   bio: '',
   photo: null,
   country: ''
