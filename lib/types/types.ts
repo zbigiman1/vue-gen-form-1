@@ -14,6 +14,7 @@ export interface FormField {
     modelValue: any
     name: string
     label: string
+    placeholder?: string
     type?: InputType
     rows?: number
     cols?: number

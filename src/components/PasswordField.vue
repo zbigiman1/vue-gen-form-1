@@ -1,7 +1,7 @@
 <template>
     <div class="form__field">
         <label class="form__field__label" :for="name">{{ label }}</label>
-        <input :class="'form__field__input'" :name="name" :type="isShowPassword ? 'text' : type" v-model="modelValue" @blur="onBlur">
+        <input :class="'form__field__input'" :name="name" :placeholder="placeholder" :type="isShowPassword ? 'text' : type" v-model="modelValue" @blur="onBlur">
         <button type="button" @click="showPassword">
             <template v-if="isShowPassword">
                 hide password
@@ -19,11 +19,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Ref, toRefs, watch } from 'vue'
+import { ref, Ref, toRefs, watch } from 'vue';
 
 const props = defineProps<{
     name: string
     label: string
+    placeholder?: string
     modelValue: any
     type: string
     value?: any

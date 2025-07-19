@@ -14,6 +14,7 @@ export function useInput(props: FormFieldExtended) {
     return h(InputComponent, {
         name: props.name,
         label: props.label,
+        placeholder: props.placeholder,
         type: props.type,
         options: props.options,
         accept: props.accept,

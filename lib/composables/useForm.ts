@@ -41,6 +41,7 @@ export function useForm(props: Form) {
                         {
                             name: field.name,
                             label: field.label,
+                            placeholder: field.placeholder,
                             type: field.type,
                             options: field.options,
                             accept: field.accept,
@@ -57,6 +58,7 @@ export function useForm(props: Form) {
                         {
                             name: field.name,
                             label: field.label,
+                            placeholder: field.placeholder,
                             type: field.type,
                             component: field.component,
                             rows: field.rows,
@@ -89,6 +91,7 @@ export function useForm(props: Form) {
                 {
                     name: field.name,
                     label: field.label,
+                    placeholder: field.placeholder,
                     type: field.type,
                     options: field.options,
                     accept: field.accept,

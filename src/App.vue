@@ -35,6 +35,7 @@ const MyForm = useForm({
       {
         name: 'email',
         label: 'Email',
+        placeholder: 'Email',
         type: 'email',
         component: 'input',
         section: 'Email',
@@ -52,6 +53,7 @@ const MyForm = useForm({
       {
         name: 'password',
         label: 'Password',
+        placeholder: 'Password',
         type: 'password',
         component: PasswordField,
         section: 'Password',
@@ -80,6 +82,7 @@ const MyForm = useForm({
       {
         name: 'repeatPassword',
         label: 'Repeat password',
+        placeholder: 'Repeat password',
         type: 'password',
         component: PasswordField,
         section: 'Password',
@@ -124,6 +127,7 @@ const MyForm = useForm({
       {
         name: 'bio',
         label: 'Bio',
+        placeholder: 'Bio',
         rows: 4,
         cols: 1,
         component: 'textarea',
@@ -137,6 +141,7 @@ const MyForm = useForm({
       {
         name: 'photo',
         label: 'Photo',
+        placeholder: 'Photo',
         type: 'file',
         accept: 'image/png, image/jpeg',
         component: 'input',

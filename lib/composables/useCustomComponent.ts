@@ -12,6 +12,7 @@ export function useCustomComponent(props: FormFieldExtended) {
 
     return h(props.component, {
         name: props.name,
+        placeholder: props.placeholder,
         label: props.label,
         type: props.type,
         options: props.options,

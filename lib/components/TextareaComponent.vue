@@ -1,7 +1,7 @@
 <template>
     <div class="form__field">
         <label class="form__field__label" :for="name">{{ label }}</label>
-        <textarea class="form__field__textarea" :name="name" :rows="rows" :cols="cols"
+        <textarea class="form__field__textarea" :name="name" :placeholder="placeholder" :rows="rows" :cols="cols"
             v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
         <div class="form__field__errors">
             <template v-for="error in errors">
@@ -17,6 +17,7 @@ import { Ref, toRefs, watch } from 'vue';
 const props = defineProps<{
     name: string
     label: string
+    placeholder?: string
     modelValue: any
     rows?: number
     cols?: number
