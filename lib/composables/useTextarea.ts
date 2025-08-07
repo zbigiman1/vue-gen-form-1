@@ -14,10 +14,7 @@ export function useTextarea(props: FormFieldExtended) {
     return h(TextareaComponent, {
         name: props.name,
         label: props.label,
-        placeholder: props.placeholder,
-        type: props.type,
-        rows: props.rows,
-        cols: props.cols,
+        attrs: props.attrs,
         errors: props.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,

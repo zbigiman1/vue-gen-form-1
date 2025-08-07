@@ -1,9 +1,6 @@
 import type { Component } from 'vue'
 import { Ref } from "vue"
 
-export type InputType = 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'month' |
-    'number' | 'password' | 'radio' | 'range' | 'search' | 'tel' | 'text' | 'time' | 'url' | 'week'
-
 export interface Validation {
     role: 'required' | RegExp | Function
     message: string
@@ -14,11 +11,7 @@ export interface FormField {
     modelValue: any
     name: string
     label: string
-    placeholder?: string
-    type?: InputType
-    rows?: number
-    cols?: number
-    accept?: string
+    attrs?: any
     options?: string[]
     onFileUpload?: Function
     condition?: Function
@@ -29,7 +22,6 @@ export interface FormField {
 export interface FormFieldExtended extends FormField {
     formData: Ref<any>
     pristine: Ref<boolean>
-    type: InputType
     errors: Ref<string[]>
 }
 

@@ -9,7 +9,7 @@ const formData = ref({
   password: '',
   repeatPassword: '',
   gender: 'male',
-  hobby: ['music','sport'],
+  hobby: ['music', 'sport'],
   bio: '',
   photo: null,
   country: ''
@@ -35,9 +35,11 @@ const MyForm = useForm({
       {
         name: 'email',
         label: 'Email',
-        placeholder: 'Email',
-        type: 'email',
         component: 'input',
+        attrs: {
+          placeholder: 'Email',
+          type: 'email',
+        },
         section: 'Email',
         modelValue: ref(formData.value.email),
         validation: [
@@ -53,8 +55,9 @@ const MyForm = useForm({
       {
         name: 'password',
         label: 'Password',
-        placeholder: 'Password',
-        type: 'password',
+        attrs: {
+          placeholder: 'Password',
+        },
         component: PasswordField,
         section: 'Password',
         modelValue: ref(formData.value.password),
@@ -82,8 +85,9 @@ const MyForm = useForm({
       {
         name: 'repeatPassword',
         label: 'Repeat password',
-        placeholder: 'Repeat password',
-        type: 'password',
+        attrs: {
+          placeholder: 'Repeat password',
+        },
         component: PasswordField,
         section: 'Password',
         condition: () => formData.value.email,
@@ -101,7 +105,9 @@ const MyForm = useForm({
       }, {
         name: 'gender',
         label: 'Gender',
-        type: 'radio',
+        attrs: {
+          type: 'radio',
+        },
         options: ['female', 'male', 'custom'],
         component: 'input',
         section: 'Additional info',
@@ -114,7 +120,9 @@ const MyForm = useForm({
       {
         name: 'hobby',
         label: 'Hobby',
-        type: 'checkbox',
+        attrs: {
+          type: 'checkbox',
+        },
         options: ['sport', 'music', 'books'],
         component: 'input',
         section: 'Additional info',
@@ -127,9 +135,10 @@ const MyForm = useForm({
       {
         name: 'bio',
         label: 'Bio',
-        placeholder: 'Bio',
-        rows: 4,
-        cols: 1,
+        attrs: {
+          placeholder: 'Bio',
+          rows: 4,
+        },
         component: 'textarea',
         section: 'Additional info',
         modelValue: ref(formData.value.bio),
@@ -141,9 +150,11 @@ const MyForm = useForm({
       {
         name: 'photo',
         label: 'Photo',
-        placeholder: 'Photo',
-        type: 'file',
-        accept: 'image/png, image/jpeg',
+        attrs: {
+          placeholder: 'Photo',
+          type: 'file',
+          accept: 'image/png, image/jpeg',
+        },
         component: 'input',
         section: 'Additional info',
         modelValue: ref(formData.value.photo),

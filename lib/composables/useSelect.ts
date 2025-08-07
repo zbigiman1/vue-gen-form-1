@@ -14,6 +14,7 @@ export function useSelect(props: FormFieldExtended) {
     return h(SelectComponent, {
         name: props.name,
         label: props.label,
+        attrs: props.attrs,
         options: props.options,
         errors: props.errors,
         modelValue: props.modelValue,

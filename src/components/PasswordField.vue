@@ -1,14 +1,15 @@
 <template>
     <div class="form__field">
         <label class="form__field__label" :for="name">{{ label }}</label>
-        <input :class="'form__field__input'" :name="name" :placeholder="placeholder" :type="isShowPassword ? 'text' : type" v-model="modelValue" @blur="onBlur">
+        <input :class="'form__field__input'" :name="name" :placeholder="placeholder"
+            :type="isShowPassword ? 'text' : 'password'" v-model="modelValue" v-bind="{ ...attrs }" @blur="onBlur">
         <button type="button" @click="showPassword">
             <template v-if="isShowPassword">
                 hide password
             </template>
             <template v-else>
                 show password
-            </template>            
+            </template>
         </button>
         <div class="form__field__errors">
             <template v-for="error in errors">
@@ -25,14 +26,14 @@ const props = defineProps<{
     name: string
     label: string
     placeholder?: string
+    attrs: any
     modelValue: any
-    type: string
     value?: any
     errors: Ref<string[]>
     pristine: Ref<boolean>
 }>()
 
-const { modelValue, type, errors, pristine } = toRefs(props)
+const { modelValue, errors, pristine, attrs } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 const isShowPassword = ref(false)

@@ -1,23 +1,25 @@
 <template>
     <div class="form__field">
         <label class="form__field__label" :for="name">{{ label }}</label>
-        <template v-if="type === 'radio' || type === 'checkbox'">
-            <template v-if="type === 'radio'">
+        <template v-if="attrs.type === 'radio' || attrs.type === 'checkbox'">
+            <template v-if="attrs.type === 'radio'">
                 <div v-for="option in options" class="form__field__option-wraper">
-                    <input class="form__field__input--radio" :name="name" :type="type" :value="option"
-                        v-model="modelValue">
+                    <input class="form__field__input--radio" :name="name" :type="attrs.type" :value="option"
+                        v-bind="{ ...attrs }" v-model="modelValue">
                     <span class="form__field__input__checkbox-radio-option">{{ option }}</span>
                 </div>
             </template>
             <template v-else>
                 <div v-for="option in options" class="form__field__option-wraper">
-                    <input class="form__field__input--checkbox" :name="name" :type="type" :value="option" v-model="modelValue">
+                    <input class="form__field__input--checkbox" :name="name" :value="option" v-model="modelValue"
+                        v-bind="{ ...attrs }">
                     <span class="form__field__input__checkbox-radio-option">{{ option }}</span>
                 </div>
             </template>
         </template>
         <template v-else>
-            <input class="form__field__input" :name="name" :placeholder="placeholder" :type="type" v-model="modelValue" :accept="accept" @blur="onBlur">
+            <input class="form__field__input" :name="name" v-model="modelValue"
+                v-bind="{ ...attrs }" @blur="onBlur">
         </template>
         <div class="form__field__errors">
             <template v-for="error in errors">
@@ -33,17 +35,14 @@ import { Ref, toRefs, watch } from 'vue';
 const props = defineProps<{
     name: string
     label: string
-    placeholder?: string
     modelValue: any
-    type: string
-    accept?: any
-    value?: any
+    attrs?: any
     options?: string[]
     errors: Ref<string[]>
     pristine: Ref<boolean>
 }>()
 
-const { modelValue, type, options, errors, pristine, accept } = toRefs(props)
+const { modelValue, options, errors, pristine, attrs } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {

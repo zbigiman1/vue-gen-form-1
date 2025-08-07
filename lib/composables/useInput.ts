@@ -14,14 +14,12 @@ export function useInput(props: FormFieldExtended) {
     return h(InputComponent, {
         name: props.name,
         label: props.label,
-        placeholder: props.placeholder,
-        type: props.type,
+        attrs: props.attrs,
         options: props.options,
-        accept: props.accept,
         errors: props?.errors,
         modelValue: props.modelValue,
         pristine: props.pristine,
-        'onChange': props.type === 'file' ? props.onFileUpload : null,
+        'onChange': props.attrs.type === 'file' ? props.onFileUpload : null,
         'onUpdate:modelValue': onUpdate,
     })
 }

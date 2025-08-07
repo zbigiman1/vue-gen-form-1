@@ -1,7 +1,7 @@
 <template>
     <div class="form__field">
         <label class="form__field__label" :for="name">{{ label }}</label>
-        <textarea class="form__field__textarea" :name="name" :placeholder="placeholder" :rows="rows" :cols="cols"
+        <textarea class="form__field__textarea" :name="name" v-bind="{ ...attrs }"
             v-model="modelValue" @blur="onBlur">{{ modelValue }}</textarea>
         <div class="form__field__errors">
             <template v-for="error in errors">
@@ -17,15 +17,13 @@ import { Ref, toRefs, watch } from 'vue';
 const props = defineProps<{
     name: string
     label: string
-    placeholder?: string
     modelValue: any
-    rows?: number
-    cols?: number
+    attrs?: any
     value?: any
     errors: Ref<string[]>
     pristine: Ref<boolean>
 }>()
-const { modelValue, rows, errors, pristine } = toRefs(props)
+const { modelValue, errors, pristine } = toRefs(props)
 const emit = defineEmits(['update:modelValue'])
 
 function onBlur() {
